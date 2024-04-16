@@ -17,7 +17,7 @@
 				"spark.dynamicAllocation.enabled": "true",
 				"spark.dynamicAllocation.minExecutors": "1",
 				"spark.dynamicAllocation.maxExecutors": "1",
-				"spark.autotune.trackingId": "a92be428-fbb9-4ee7-a332-6bee0ab25c2f"
+				"spark.autotune.trackingId": "e2d49d4a-bb7a-4e15-b75e-e59b1933783e"
 			}
 		},
 		"metadata": {
@@ -62,9 +62,11 @@
 					"## If header exists uncomment line below\r\n",
 					", header=True\r\n",
 					")\r\n",
-					"display(df.limit(10))"
+					"fd=df.filter((df.SKU=='H100') & (df.CustomerCategory!='OAI Training'))\r\n",
+					"display(fd)\r\n",
+					"display(fd.select('DC','Racks').distinct().orderBy('DC'))"
 				],
-				"execution_count": 1
+				"execution_count": 24
 			}
 		]
 	}
