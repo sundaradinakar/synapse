@@ -26,24 +26,6 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('workspaceName'), '/mysynapsepool')]",
-			"type": "Microsoft.Synapse/workspaces/bigDataPools",
-			"apiVersion": "2019-06-01-preview",
-			"properties": {
-				"annotations": []
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('workspaceName'), '/pool2')]",
-			"type": "Microsoft.Synapse/workspaces/bigDataPools",
-			"apiVersion": "2019-06-01-preview",
-			"properties": {
-				"annotations": []
-			},
-			"dependsOn": []
-		},
-		{
 			"name": "[concat(parameters('workspaceName'), '/Pipeline 1')]",
 			"type": "Microsoft.Synapse/workspaces/pipelines",
 			"apiVersion": "2019-06-01-preview",
@@ -191,7 +173,7 @@
 						"spark.dynamicAllocation.enabled": "true",
 						"spark.dynamicAllocation.minExecutors": "1",
 						"spark.dynamicAllocation.maxExecutors": "1",
-						"spark.autotune.trackingId": "b7d8809a-4ccc-44ad-8a7b-e12aff85255b"
+						"spark.autotune.trackingId": "c7bb4901-6bc1-4a0d-9274-b8e650129618"
 					}
 				},
 				"metadata": {
@@ -241,7 +223,35 @@
 							"display(fd.select('DC','Racks').distinct().orderBy('DC'))"
 						],
 						"outputs": [],
-						"execution_count": 24
+						"execution_count": 1
+					},
+					{
+						"cell_type": "code",
+						"metadata": {
+							"jupyter": {
+								"source_hidden": false,
+								"outputs_hidden": false
+							},
+							"nteract": {
+								"transient": {
+									"deleting": false
+								}
+							}
+						},
+						"source": [
+							"import requests\r\n",
+							"response = requests.get('http://api.open-notify.org/astros.json')\r\n",
+							"data = response.json()\r\n",
+							"print(data)\r\n",
+							"people = data['people']\r\n",
+							"print(data['message'])\r\n",
+							"print(data['number'])\r\n",
+							"for person in people:\r\n",
+							"    print(person['name'])\r\n",
+							"    print(person['craft'])"
+						],
+						"outputs": [],
+						"execution_count": 3
 					}
 				]
 			},
