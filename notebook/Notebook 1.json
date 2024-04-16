@@ -17,7 +17,7 @@
 				"spark.dynamicAllocation.enabled": "true",
 				"spark.dynamicAllocation.minExecutors": "1",
 				"spark.dynamicAllocation.maxExecutors": "1",
-				"spark.autotune.trackingId": "995a3672-43d8-440b-a96a-cd0eb4f76fa3"
+				"spark.autotune.trackingId": "a1a93623-751f-4830-8dcc-f29040a1434e"
 			}
 		},
 		"metadata": {
@@ -91,8 +91,7 @@
 					"print(data['number'])\r\n",
 					"for person in people:\r\n",
 					"    print(person['name'])\r\n",
-					"    print(person['craft'])\r\n",
-					"    "
+					"    print(person['craft'])"
 				],
 				"execution_count": 3
 			}
