@@ -4,7 +4,7 @@
 		"nbformat": 4,
 		"nbformat_minor": 2,
 		"bigDataPool": {
-			"referenceName": "mysynapsepool",
+			"referenceName": "pool2",
 			"type": "BigDataPoolReference"
 		},
 		"sessionProperties": {
@@ -12,12 +12,12 @@
 			"driverCores": 4,
 			"executorMemory": "28g",
 			"executorCores": 4,
-			"numExecutors": 2,
+			"numExecutors": 1,
 			"conf": {
-				"spark.dynamicAllocation.enabled": "false",
-				"spark.dynamicAllocation.minExecutors": "2",
-				"spark.dynamicAllocation.maxExecutors": "2",
-				"spark.autotune.trackingId": "dd54af1c-becc-4c77-ad97-270d8cd99175"
+				"spark.dynamicAllocation.enabled": "true",
+				"spark.dynamicAllocation.minExecutors": "1",
+				"spark.dynamicAllocation.maxExecutors": "1",
+				"spark.autotune.trackingId": "a92be428-fbb9-4ee7-a332-6bee0ab25c2f"
 			}
 		},
 		"metadata": {
@@ -31,10 +31,10 @@
 				"name": "python"
 			},
 			"a365ComputeOptions": {
-				"id": "/subscriptions/aedf6fff-7a75-4dce-861a-314b533a7afe/resourceGroups/synapse/providers/Microsoft.Synapse/workspaces/sundaraws/bigDataPools/mysynapsepool",
-				"name": "mysynapsepool",
+				"id": "/subscriptions/aedf6fff-7a75-4dce-861a-314b533a7afe/resourceGroups/synapse/providers/Microsoft.Synapse/workspaces/sundaraws/bigDataPools/pool2",
+				"name": "pool2",
 				"type": "Spark",
-				"endpoint": "https://sundaraws.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/mysynapsepool",
+				"endpoint": "https://sundaraws.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/pool2",
 				"auth": {
 					"type": "AAD",
 					"authResource": "https://dev.azuresynapse.net"
@@ -43,7 +43,7 @@
 				"nodeCount": 10,
 				"cores": 4,
 				"memory": 28,
-				"automaticScaleJobs": false
+				"automaticScaleJobs": true
 			},
 			"sessionKeepAliveTimeout": 30
 		},
@@ -60,11 +60,11 @@
 					"%%pyspark\r\n",
 					"df = spark.read.load('abfss://filesys@synapse23423.dfs.core.windows.net/input/GPUContiguousPowerFeed_Dccm_4_10 - Copy.csv', format='csv'\r\n",
 					"## If header exists uncomment line below\r\n",
-					"##, header=True\r\n",
+					", header=True\r\n",
 					")\r\n",
 					"display(df.limit(10))"
 				],
-				"execution_count": 2
+				"execution_count": 1
 			}
 		]
 	}
