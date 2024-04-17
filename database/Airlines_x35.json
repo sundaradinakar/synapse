@@ -1,0 +1,24 @@
+{
+	"name": "Airlines_x35",
+	"properties": {
+		"Name": "Airlines_x35",
+		"EntityType": "DATABASE",
+		"Description": "",
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"Properties": {
+			"DerivedModelDBInfo": "{\"ModelDirectives\":{\"BaseModel\":{\"Name\":\"Airlines\",\"Version\":\"1.3.0\"}}}",
+			"IsSyMSCDMDatabase": true
+		},
+		"Source": {
+			"Provider": "ADLS",
+			"Location": "abfss://filesys@synapse23423.dfs.core.windows.net/Airlines_x35",
+			"Properties": {
+				"FormatType": "csv",
+				"LinkedServiceName": "sundaraws-WorkspaceDefaultStorage"
+			}
+		}
+	},
+	"type": "DATABASE"
+}
