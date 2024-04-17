@@ -18,7 +18,7 @@
 				"spark.dynamicAllocation.enabled": "true",
 				"spark.dynamicAllocation.minExecutors": "1",
 				"spark.dynamicAllocation.maxExecutors": "1",
-				"spark.autotune.trackingId": "277673ec-ac7b-4533-bac5-7773b919db5f"
+				"spark.autotune.trackingId": "c6671356-e08a-4b23-a982-135d0f3c6a71"
 			}
 		},
 		"metadata": {
@@ -41,10 +41,10 @@
 					"authResource": "https://dev.azuresynapse.net"
 				},
 				"sparkVersion": "3.4",
-				"nodeCount": 10,
+				"nodeCount": 3,
 				"cores": 4,
 				"memory": 28,
-				"automaticScaleJobs": true
+				"automaticScaleJobs": false
 			},
 			"sessionKeepAliveTimeout": 30
 		},
@@ -65,9 +65,14 @@
 					")\r\n",
 					"fd=df.filter((df.SKU=='H100') & (df.CustomerCategory!='OAI Training'))\r\n",
 					"display(fd)\r\n",
-					"display(fd.select('DC','Racks').distinct().orderBy('DC'))"
+					"display(fd.select('DC','Racks').distinct().orderBy('DC'))\r\n",
+					"\r\n",
+					"class DC:\r\n",
+					"    __init__(self,dc):\r\n",
+					"    self.dc=dc\r\n",
+					"for "
 				],
-				"execution_count": 1
+				"execution_count": null
 			},
 			{
 				"cell_type": "code",
